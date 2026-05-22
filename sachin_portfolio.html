@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sachin Akash — Graphic Designer & Visual Storyteller</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF7F2;
+    --ink: #1A1714;
+    --accent: #C6501A;
+    --accent2: #E8A87C;
+    --muted: #6B6560;
+    --surface: #F0EBE3;
+    --border: rgba(26,23,20,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(250,247,242,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(198,80,26,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 36px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 420px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .btn-secondary {
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: var(--ink); color: var(--cream); }
+
+  .btn-view {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.2rem;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 2px;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .btn-view:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  .hero-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .hero-stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 2px;
+  }
+
+  .hero-stat .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-stat .stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-stat.accent-card {
+    background: var(--accent);
+    border-color: var(--accent);
+    grid-column: span 2;
+  }
+
+  .hero-stat.accent-card .stat-num,
+  .hero-stat.accent-card .stat-label { color: white; }
+
+  /* MARQUEE */
+  .marquee-wrapper {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    padding: 0.9rem 0;
+    background: var(--ink);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+  }
+
+  .marquee-track span {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.5);
+    white-space: nowrap;
+  }
+
+  .marquee-track span.dot {
+    color: var(--accent);
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTION COMMONS */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  /* SKILLS */
+  .skills-section { background: var(--surface); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .skill-card {
+    background: var(--cream);
+    padding: 2rem;
+    border: none;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card:hover { background: var(--ink); }
+  .skill-card:hover .skill-title,
+  .skill-card:hover .skill-desc,
+  .skill-card:hover .skill-icon { color: var(--cream); }
+
+  .skill-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--accent);
+    transition: color 0.2s;
+  }
+
+  .skill-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .skill-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    transition: color 0.2s;
+  }
+
+  .skill-tools {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tool-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--muted);
+    background: var(--surface);
+    transition: all 0.2s;
+  }
+
+  .skill-card:hover .tool-tag {
+    border-color: rgba(250,247,242,0.25);
+    background: rgba(250,247,242,0.1);
+    color: rgba(250,247,242,0.7);
+  }
+
+  /* EXPERIENCE */
+  .exp-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .exp-left .intro-text {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .exp-timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-bottom: none;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .exp-item:last-child { border-bottom: 1px solid var(--border); }
+  .exp-item:hover { background: var(--surface); }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: transparent;
+    transition: background 0.2s;
+  }
+
+  .exp-item:hover::before { background: var(--accent); }
+
+  .exp-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .exp-period {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(198,80,26,0.08);
+    padding: 0.2rem 0.7rem;
+    border-radius: 2px;
+  }
+
+  .exp-company {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .exp-points { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .exp-points li {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .exp-points li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+
+  /* PROJECTS */
+  .projects-section { background: var(--ink); }
+  .projects-section .section-label,
+  .projects-section .section-title { color: var(--cream); }
+  .projects-section .section-label::before { background: var(--accent); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .project-card {
+    border: 1px solid rgba(250,247,242,0.12);
+    padding: 0;
+    overflow: hidden;
+    border-radius: 2px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .project-thumb {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    letter-spacing: -0.05em;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    color: rgba(250,247,242,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-thumb.c1 { background: #2A1F14; }
+  .project-thumb.c2 { background: #14202A; }
+  .project-thumb.c3 { background: #14261A; }
+  .project-thumb.c4 { background: #261426; }
+
+  .project-tag {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    background: rgba(198,80,26,0.2);
+    padding: 0.25rem 0.7rem;
+    border-radius: 2px;
+  }
+
+  .project-thumb-icon {
+    font-size: 4rem;
+    color: rgba(250,247,242,0.15);
+    position: absolute;
+  }
+
+  .project-body {
+    padding: 1.5rem;
+  }
+
+  .project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    color: rgba(250,247,242,0.5);
+    line-height: 1.6;
+  }
+
+  /* EDUCATION */
+  .edu-section { background: var(--surface); }
+
+  .edu-card {
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    background: var(--cream);
+    border-radius: 2px;
+  }
+
+  .edu-badge {
+    width: 64px; height: 64px;
+    background: var(--ink);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .edu-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .edu-degree { font-size: 0.9rem; color: var(--muted); }
+
+  .edu-years {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* CERTS */
+  .cert-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    border-radius: 2px;
+  }
+
+  .cert-icon { font-size: 1.5rem; color: var(--accent); }
+
+  .cert-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .cert-issuer { font-size: 0.78rem; color: var(--muted); }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--ink);
+    text-align: center;
+    padding: 8rem 4rem;
+  }
+
+  .contact-section .section-label { justify-content: center; }
+  .contact-section .section-label::before { display: none; }
+  .contact-section .section-title { color: var(--cream); margin-bottom: 1.5rem; }
+
+  .contact-subtitle {
+    font-size: 1.05rem;
+    color: rgba(250,247,242,0.5);
+    max-width: 480px;
+    margin: 0 auto 3rem;
+    line-height: 1.75;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.8rem;
+    border: 1px solid rgba(250,247,242,0.2);
+    border-radius: 2px;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(250,247,242,0.08);
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: rgba(250,247,242,0.3);
+    letter-spacing: 0.08em;
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+    .hero-right { grid-template-columns: 1fr 1fr; }
+    section { padding: 4rem 1.5rem; }
+    .exp-layout { grid-template-columns: 1fr; }
+    .edu-card { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Sachin Akash</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Available for opportunities</div>
+    <h1>Graphic Designer &amp; <em>Visual Storyteller</em></h1>
+    <p class="hero-desc">
+      Computer Science student at IIT Palakkad — designing brand identities, motion content, and campaigns that stop the scroll and spark curiosity.
+    </p>
+    <div class="hero-cta">
+      <a href="mailto:sachinvasamsetti8328@gmail.com" class="btn-primary">Get in touch</a>
+      <a href="#projects" class="btn-secondary">View work</a>
+    </div>
+  </div>
+  <div class="hero-right fade-up">
+    <div class="hero-stat">
+      <div class="stat-num">4+</div>
+      <div class="stat-label">Design Tools</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-num">IIT</div>
+      <div class="stat-label">Palakkad, CS</div>
+    </div>
+    <div class="hero-stat accent-card">
+      <div class="stat-num">Brand · Motion · Photo</div>
+      <div class="stat-label">Specialisations</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-num">2+</div>
+      <div class="stat-label">Years Creating</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-num">AP</div>
+      <div class="stat-label">East Godavari</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrapper">
+  <div class="marquee-track">
+    <span>Photoshop</span><span class="dot">·</span>
+    <span>Premiere Pro</span><span class="dot">·</span>
+    <span>Canva</span><span class="dot">·</span>
+    <span>CapCut</span><span class="dot">·</span>
+    <span>Figma</span><span class="dot">·</span>
+    <span>After Effects</span><span class="dot">·</span>
+    <span>Illustrator</span><span class="dot">·</span>
+    <span>Brand Identity</span><span class="dot">·</span>
+    <span>Social Media Creatives</span><span class="dot">·</span>
+    <span>Video Editing</span><span class="dot">·</span>
+    <span>Motion Graphics</span><span class="dot">·</span>
+    <span>Photography</span><span class="dot">·</span>
+    <!-- duplicate for seamless loop -->
+    <span>Photoshop</span><span class="dot">·</span>
+    <span>Premiere Pro</span><span class="dot">·</span>
+    <span>Canva</span><span class="dot">·</span>
+    <span>CapCut</span><span class="dot">·</span>
+    <span>Figma</span><span class="dot">·</span>
+    <span>After Effects</span><span class="dot">·</span>
+    <span>Illustrator</span><span class="dot">·</span>
+    <span>Brand Identity</span><span class="dot">·</span>
+    <span>Social Media Creatives</span><span class="dot">·</span>
+    <span>Video Editing</span><span class="dot">·</span>
+    <span>Motion Graphics</span><span class="dot">·</span>
+    <span>Photography</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-label">What I do</div>
+  <div class="section-title">Core Skill Sets</div>
+  <div class="skills-grid">
+
+    <div class="skill-card fade-up">
+      <span class="skill-icon">🎨</span>
+      <div class="skill-title">Graphic Design</div>
+      <div class="skill-desc">Social media creatives, campaign graphics, poster design, pitch deck visuals, and brand identity assets.</div>
+      <div class="skill-tools">
+        <span class="tool-tag">Photoshop</span>
+        <span class="tool-tag">Canva</span>
+        <span class="tool-tag">Illustrator</span>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <span class="skill-icon">🎬</span>
+      <div class="skill-title">Video Editing</div>
+      <div class="skill-desc">Short-form social content, reels, brand videos, and motion graphics — polished for maximum engagement.</div>
+      <div class="skill-tools">
+        <span class="tool-tag">Premiere Pro</span>
+        <span class="tool-tag">CapCut</span>
+        <span class="tool-tag">After Effects</span>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <span class="skill-icon">📷</span>
+      <div class="skill-title">Photography</div>
+      <div class="skill-desc">Event and campaign photography with professional post-processing — active member of Shutterbug, IIT Palakkad.</div>
+      <div class="skill-tools">
+        <span class="tool-tag">Lightroom</span>
+        <span class="tool-tag">Photoshop</span>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <span class="skill-icon">🔤</span>
+      <div class="skill-title">Typography & Layout</div>
+      <div class="skill-desc">Clean B2B-grade design principles — whitespace, visual hierarchy, and layout systems that communicate with clarity.</div>
+      <div class="skill-tools">
+        <span class="tool-tag">Figma</span>
+        <span class="tool-tag">InDesign</span>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <span class="skill-icon">🌐</span>
+      <div class="skill-title">UI & Web Basics</div>
+      <div class="skill-desc">HTML, CSS, and JavaScript fundamentals supporting UI mockups, feature explainer design, and SaaS interface understanding.</div>
+      <div class="skill-tools">
+        <span class="tool-tag">HTML/CSS</span>
+        <span class="tool-tag">JavaScript</span>
+        <span class="tool-tag">Figma</span>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <span class="skill-icon">📱</span>
+      <div class="skill-title">Content Strategy</div>
+      <div class="skill-desc">Content scheduling, brand-consistent campaign execution, and cross-platform social media management.</div>
+      <div class="skill-tools">
+        <span class="tool-tag">Reels</span>
+        <span class="tool-tag">Shorts</span>
+        <span class="tool-tag">Stories</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Track record</div>
+  <div class="section-title">Experience &amp; Projects</div>
+  <div class="exp-layout">
+    <div class="exp-left fade-up">
+      <p class="intro-text">
+        From internships to campus events, every project has sharpened my ability to translate ideas into visuals that resonate.
+      </p>
+    </div>
+    <div class="exp-timeline">
+
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <span class="exp-role">Content Creator Intern</span>
+          <span class="exp-period">Internship</span>
+        </div>
+        <div class="exp-company"><a href="https://letstransport.in/" target="_blank" style="font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:3px;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='inherit'">Let's Transport</a> · Video &amp; Social Media</div>
+        <ul class="exp-points">
+          <li>Produced and edited video content for social media platforms, maintaining consistent brand tone.</li>
+          <li>Managed content calendars and collaborated on campaign execution across channels.</li>
+          <li>Applied CapCut and Premiere Pro to craft engaging short-form content that drove organic reach.</li>
+        </ul>
+        <a href="https://drive.google.com/file/d/1dcHVjyrJBi-DG53Z35zheKfHAySvMryr/view?usp=sharing" target="_blank" class="btn-view" style="margin-top:1rem;display:inline-block;">Work ↗</a>
+      </div>
+
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <span class="exp-role">Photography Club — Shutterbug</span>
+          <span class="exp-period">IIT Palakkad</span>
+        </div>
+        <div class="exp-company">Active Member · Event & Campaign Photography</div>
+        <ul class="exp-points">
+          <li>Captured and edited photographs for college events, campaigns, and digital publications.</li>
+          <li>Designed promotional posters and graphics using Photoshop and Canva.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item fade-up">
+        <div class="exp-meta">
+          <span class="exp-role">ProShow — Concert Organiser</span>
+          <span class="exp-period">IIT Palakkad</span>
+        </div>
+        <div class="exp-company">Design Lead · Large-Scale Event Branding</div>
+        <ul class="exp-points">
+          <li>Designed promotional materials and visual identity assets for a large-scale college concert.</li>
+          <li>Coordinated team efforts to maintain a cohesive visual language across all event touchpoints.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="section-label">Creative work</div>
+  <div class="section-title">Selected Projects</div>
+  <div class="projects-grid">
+
+    <div class="project-card fade-up">
+      <div class="project-thumb c1">
+        <span class="project-tag">Brand Design</span>
+        <span class="project-thumb-icon">🏷</span>
+        BRAND
+      </div>
+      <div class="project-body">
+        <div class="project-name">Campaign Social Creatives</div>
+        <div class="project-desc">Social media graphics and campaign assets for Let's Transport — short-form content built for engagement and brand recall.</div>
+        <a href="https://drive.google.com/drive/folders/1_pG5QX6Yeorl-_EN8Ac8mCxWpOuXLs2q?usp=sharing" target="_blank" class="btn-view">View ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-thumb c2">
+        <span class="project-tag">Video</span>
+        <span class="project-thumb-icon">🎬</span>
+        MOTION
+      </div>
+      <div class="project-body">
+        <div class="project-name">Short-Form Video Content</div>
+        <div class="project-desc">Edited reels and short-form brand videos using Premiere Pro and CapCut — optimised for Instagram and YouTube Shorts.</div>
+        <a href="https://drive.google.com/drive/folders/1kY-C4dyU6Mvz40fjTtM1URIElFGLjyEr?usp=sharing" target="_blank" class="btn-view">View ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-thumb c3">
+        <span class="project-tag">Event Design</span>
+        <span class="project-thumb-icon">🎪</span>
+        EVENT
+      </div>
+      <div class="project-body">
+        <div class="project-name">ProShow Concert Visual Identity</div>
+        <div class="project-desc">End-to-end visual branding for IIT Palakkad's annual concert — posters, banners, digital assets, and on-site collateral.</div>
+        <a href="https://drive.google.com/drive/folders/1ETk1agrp7d9Jl24eRkQEzH_yVQKkcXBa?usp=drive_link" target="_blank" class="btn-view">View ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-thumb c4">
+        <span class="project-tag">Photography</span>
+        <span class="project-thumb-icon">📸</span>
+        PHOTO
+      </div>
+      <div class="project-body">
+        <div class="project-name">Campus Event Photography</div>
+        <div class="project-desc">Shot and post-processed photos for Shutterbug club events — applying Photoshop for colour grading and retouching.</div>
+        <a href="https://drive.google.com/drive/folders/1qC2648lAoY12lMYpE86zTd469tA6VhO1?usp=sharing" target="_blank" class="btn-view">View ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="edu-section" id="education">
+  <div class="section-label">Background</div>
+  <div class="section-title">Education &amp; Certifications</div>
+
+  <div class="edu-card fade-up">
+    <div class="edu-badge">IIT<br>PKD</div>
+    <div>
+      <div class="edu-name">Indian Institute of Technology, Palakkad</div>
+      <div class="edu-degree">Bachelor of Technology · Computer Science</div>
+    </div>
+    <div class="edu-years">2021 – 2025</div>
+  </div>
+
+  <div class="cert-row fade-up">
+    <div class="cert-icon">🏅</div>
+    <div>
+      <div class="cert-name">Deloitte Australia — Data Analytics Job Simulation</div>
+      <div class="cert-issuer">Deloitte · Forage</div>
+    </div>
+    <a href="https://drive.google.com/drive/folders/1sino-bsFjlIA2G3ecxSga0dB4i7hQPg5?usp=sharing" target="_blank" class="btn-view" style="margin-top:0;align-self:center;">View ↗</a>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label">Let's work together</div>
+  <h2 class="section-title">Ready to Create<br>Something <em style="font-style:italic;color:var(--accent);">Remarkable</em>?</h2>
+  <p class="contact-subtitle">
+    Whether it's a brand identity, a social campaign, or a video project — let's build visuals that leave a mark.
+  </p>
+  <div class="contact-links">
+    <a href="mailto:sachinvasamsetti8328@gmail.com" class="contact-link">✉ Email Me</a>
+    <a href="https://www.linkedin.com/in/sachinvasamsetti-722312255" target="_blank" class="contact-link">↗ LinkedIn</a>
+    <a href="tel:9392488644" class="contact-link">📞 Call</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Sachin Akash Vasamsetti</span>
+  <span>East Godavari, Andhra Pradesh · IIT Palakkad</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
